@@ -111,13 +111,6 @@
 
 ---
 
-### 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=harshgaikwaddev&theme=default&hide_border=true" alt="Harsh's GitHub streak" height="165" />
-</p>
-
----
 
 ### 📫 Connect with Me
 
