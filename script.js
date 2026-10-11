@@ -12,7 +12,7 @@
 const EMAILJS_CONFIG = Object.freeze({
     PUBLIC_KEY: "bHrvyVJBTfA6e3JWa",        // e.g. "user_xxxxxxxxxxxx"
     SERVICE_ID: "service_yhk092r",        // e.g. "service_xxxxxxx"
-    TEMPLATE_ID: "template_ut59m13",      // e.g. "template_xxxxxxx"
+    TEMPLATE_ID: "template_aamjglt",      // e.g. "template_xxxxxxx"
     DESTINATION_EMAIL: "harshgaikwad0517@gmail.com",
 });
 
