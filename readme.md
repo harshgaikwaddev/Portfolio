@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Harsh Gaikwad</h1>
-<h3 align="center">Backend-focused Full Stack Developer | Final-Year IT Student</h3>
+<h3 align="center">Full-Stack Developer (Python & Node.js) | Final-Year IT Student</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Location-Vadodara,%20India-informational?style=for-the-badge" />
@@ -10,13 +10,13 @@
 ### 🚀 About Me
 
 - 🎓 Final-year **B.Tech Information Technology** student at Parul University
-- 💻 Hands-on backend development experience with **Python, Flask, and Node.js/Express.js**
+- 💻 Hands-on full-stack development experience with the **MERN stack (MongoDB, Express.js, React, Node.js)** and **Python (Flask, FastAPI)**
 - 🚀 Skilled in **RESTful API design**, database modeling (**MongoDB, PostgreSQL**), **JWT authentication**, and **role-based access control**
 - 🌱 Currently building full-stack web applications and deepening my knowledge of React, Node.js, Express, MongoDB, and Git/GitHub
 - 🤝 Open to collaborating on interesting projects and open-source development
-- 💬 Ask me about web development, Python, MERN projects, Git/GitHub, or backend architecture
+- 💬 Ask me about web development, Python, MERN projects, Git/GitHub, or full-stack architecture
 - ⚡ Fun fact: I learn best by building things and experimenting with new technologies
-- 🎯 Seeking a **Backend Engineer** role to apply my problem-solving and server-side development skills in production
+- 🎯 Seeking a **Full-Stack Developer** role where I can build and ship production-grade web applications
 
 ---
 

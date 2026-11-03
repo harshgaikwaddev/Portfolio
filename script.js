@@ -1,6 +1,6 @@
 /**
  * TERMINAL NOIR — CINEMATIC MOTION SYSTEM & APPLICATION ENGINE
- * Portfolio of Harsh Gaikwad — Backend-Focused Full Stack Developer
+ * Portfolio of Harsh Gaikwad — Full-Stack Developer (Python & Node.js)
  * Pinned Versions: GSAP 3.12.5, ScrollTrigger 3.12.5, Lenis 1.1.13
  */
 
@@ -10,9 +10,9 @@
    1. EMAILJS CONFIGURATION (Replace placeholders for production)
    ========================================================================== */
 const EMAILJS_CONFIG = Object.freeze({
-    PUBLIC_KEY: "bHrvyVJBTfA6e3JWa",        // e.g. "user_xxxxxxxxxxxx"
-    SERVICE_ID: "service_yhk092r",        // e.g. "service_xxxxxxx"
-    TEMPLATE_ID: "template_aamjglt",      // e.g. "template_xxxxxxx"
+    PUBLIC_KEY: "bHrvyVJBTfA6e3JWa", // e.g. "user_xxxxxxxxxxxx"
+    SERVICE_ID: "service_yhk092r", // e.g. "service_xxxxxxx"
+    TEMPLATE_ID: "template_aamjglt", // e.g. "template_xxxxxxx"
     DESTINATION_EMAIL: "harshgaikwad0517@gmail.com",
 });
 
@@ -21,7 +21,8 @@ const EMAILJS_CONFIG = Object.freeze({
    ========================================================================== */
 const STATE = {
     lenis: null,
-    isReducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    isReducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)")
+        .matches,
     isFinePointer: window.matchMedia("(pointer: fine)").matches,
     isMobile: window.innerWidth <= 768,
     isLoaded: false,
@@ -59,7 +60,12 @@ function initPreloader() {
     }
 
     // Immediately skip preloader if user opened with hash, query param, or reduced motion
-    if (!preloader || STATE.isReducedMotion || window.location.hash || window.location.search) {
+    if (
+        !preloader ||
+        STATE.isReducedMotion ||
+        window.location.hash ||
+        window.location.search
+    ) {
         if (preloader) {
             preloader.classList.add("loaded");
             preloader.style.display = "none";
@@ -76,9 +82,12 @@ function initPreloader() {
 
     // Stagger terminal lines reveal
     lines.forEach((line, index) => {
-        setTimeout(() => {
-            line.classList.add("visible");
-        }, index * 150 + 50);
+        setTimeout(
+            () => {
+                line.classList.add("visible");
+            },
+            index * 150 + 50,
+        );
     });
 
     let percent = 0;
@@ -110,7 +119,7 @@ function triggerHeroReveal() {
             if (typeof ScrollTrigger !== "undefined") {
                 ScrollTrigger.refresh();
             }
-        }
+        },
     });
 
     heroTimeline
@@ -120,54 +129,90 @@ function triggerHeroReveal() {
             duration: 0.8,
             delay: 0.1,
         })
-        .from(".hero-role-tag", {
-            opacity: 0,
-            y: 15,
-            duration: 0.6,
-        }, "-=0.5")
-        .from(".hero-line-inner", {
-            y: "110%",
-            duration: 1.1,
-            stagger: 0.12,
-        }, "-=0.4")
-        .from(".hero-description", {
-            opacity: 0,
-            y: 20,
-            duration: 0.9,
-        }, "-=0.6")
-        .from(".hero-cta-group .btn", {
-            opacity: 0,
-            y: 25,
-            duration: 0.7,
-            stagger: 0.1,
-        }, "-=0.6")
-        .from(".hero-quick-meta", {
-            opacity: 0,
-            y: 15,
-            duration: 0.6,
-        }, "-=0.4")
-        .from(".profile-card-3d", {
-            opacity: 0,
-            scale: 0.94,
-            rotationY: -15,
-            duration: 1.2,
-        }, "-=1.0")
-        .from(".hero-terminal", {
-            opacity: 0,
-            y: 25,
-            duration: 0.8,
-        }, "-=0.6")
-        .from(".floating-chip", {
-            opacity: 0,
-            y: 15,
-            scale: 0.8,
-            duration: 0.8,
-            stagger: 0.15,
-        }, "-=0.7")
-        .from(".scroll-indicator", {
-            opacity: 0,
-            duration: 0.8,
-        }, "-=0.4");
+        .from(
+            ".hero-role-tag",
+            {
+                opacity: 0,
+                y: 15,
+                duration: 0.6,
+            },
+            "-=0.5",
+        )
+        .from(
+            ".hero-line-inner",
+            {
+                y: "110%",
+                duration: 1.1,
+                stagger: 0.12,
+            },
+            "-=0.4",
+        )
+        .from(
+            ".hero-description",
+            {
+                opacity: 0,
+                y: 20,
+                duration: 0.9,
+            },
+            "-=0.6",
+        )
+        .from(
+            ".hero-cta-group .btn",
+            {
+                opacity: 0,
+                y: 25,
+                duration: 0.7,
+                stagger: 0.1,
+            },
+            "-=0.6",
+        )
+        .from(
+            ".hero-quick-meta",
+            {
+                opacity: 0,
+                y: 15,
+                duration: 0.6,
+            },
+            "-=0.4",
+        )
+        .from(
+            ".profile-card-3d",
+            {
+                opacity: 0,
+                scale: 0.94,
+                rotationY: -15,
+                duration: 1.2,
+            },
+            "-=1.0",
+        )
+        .from(
+            ".hero-terminal",
+            {
+                opacity: 0,
+                y: 25,
+                duration: 0.8,
+            },
+            "-=0.6",
+        )
+        .from(
+            ".floating-chip",
+            {
+                opacity: 0,
+                y: 15,
+                scale: 0.8,
+                duration: 0.8,
+                stagger: 0.15,
+            },
+            "-=0.7",
+        )
+        .from(
+            ".scroll-indicator",
+            {
+                opacity: 0,
+                duration: 0.8,
+            },
+            "-=0.4",
+        );
 }
 
 /* ==========================================================================
@@ -257,7 +302,8 @@ function initNavbar() {
 
     function handleScroll() {
         const scrollY = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const maxScroll =
+            document.documentElement.scrollHeight - window.innerHeight;
         const progress = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
 
         // Update progress bar
@@ -382,12 +428,16 @@ function initCustomCursor() {
     let ringX = mouseX;
     let ringY = mouseY;
 
-    window.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    window.addEventListener(
+        "mousemove",
+        (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
 
-        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    }, { passive: true });
+            dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        },
+        { passive: true },
+    );
 
     // Smooth lerp loop for the trailing ring
     function renderCursor() {
@@ -401,7 +451,9 @@ function initCustomCursor() {
     requestAnimationFrame(renderCursor);
 
     // Interactive Hover States
-    const interactiveElements = document.querySelectorAll("a, button, input, textarea, [data-spotlight]");
+    const interactiveElements = document.querySelectorAll(
+        "a, button, input, textarea, [data-spotlight]",
+    );
     interactiveElements.forEach((el) => {
         el.addEventListener("mouseenter", () => {
             ring.classList.add("cursor-hover");
@@ -412,7 +464,9 @@ function initCustomCursor() {
     });
 
     // Project Cards "VIEW" Hover State
-    const projectCards = document.querySelectorAll(".project-card-noir, .project-view-trigger");
+    const projectCards = document.querySelectorAll(
+        ".project-card-noir, .project-view-trigger",
+    );
     projectCards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
             ring.classList.add("cursor-view");
@@ -443,14 +497,18 @@ function initSpotlightBorders() {
     const cards = document.querySelectorAll("[data-spotlight]");
 
     cards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        card.addEventListener(
+            "mousemove",
+            (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-        }, { passive: true });
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            },
+            { passive: true },
+        );
     });
 }
 
@@ -465,21 +523,26 @@ function init3DTilt() {
     tiltElements.forEach((el) => {
         const inner = el.querySelector(".profile-card-inner") || el;
 
-        el.addEventListener("mousemove", (e) => {
-            const rect = el.getBoundingClientRect();
-            const width = rect.width;
-            const height = rect.height;
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
+        el.addEventListener(
+            "mousemove",
+            (e) => {
+                const rect = el.getBoundingClientRect();
+                const width = rect.width;
+                const height = rect.height;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
 
-            const rotateX = ((mouseY - height / 2) / height) * -12;
-            const rotateY = ((mouseX - width / 2) / width) * 12;
+                const rotateX = ((mouseY - height / 2) / height) * -12;
+                const rotateY = ((mouseX - width / 2) / width) * 12;
 
-            inner.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
-        }, { passive: true });
+                inner.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+            },
+            { passive: true },
+        );
 
         el.addEventListener("mouseleave", () => {
-            inner.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+            inner.style.transform =
+                "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
         });
     });
 }
@@ -493,13 +556,17 @@ function initMagneticButtons() {
     const magneticBtns = document.querySelectorAll(".magnetic-btn");
 
     magneticBtns.forEach((btn) => {
-        btn.addEventListener("mousemove", (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
+        btn.addEventListener(
+            "mousemove",
+            (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
 
-            btn.style.transform = `translate3d(${x * 0.24}px, ${y * 0.24}px, 0)`;
-        }, { passive: true });
+                btn.style.transform = `translate3d(${x * 0.24}px, ${y * 0.24}px, 0)`;
+            },
+            { passive: true },
+        );
 
         btn.addEventListener("mouseleave", () => {
             btn.style.transform = "translate3d(0px, 0px, 0px)";
@@ -516,7 +583,11 @@ function initStatsCounter() {
 
     const statNumbers = statsRow.querySelectorAll(".stat-number");
 
-    if (typeof ScrollTrigger !== "undefined" && typeof gsap !== "undefined" && !STATE.isReducedMotion) {
+    if (
+        typeof ScrollTrigger !== "undefined" &&
+        typeof gsap !== "undefined" &&
+        !STATE.isReducedMotion
+    ) {
         ScrollTrigger.create({
             trigger: statsRow,
             start: "top 85%",
@@ -557,7 +628,11 @@ function initTimelineProgress() {
 
     if (!timeline || !progressLine) return;
 
-    if (typeof ScrollTrigger !== "undefined" && typeof gsap !== "undefined" && !STATE.isReducedMotion) {
+    if (
+        typeof ScrollTrigger !== "undefined" &&
+        typeof gsap !== "undefined" &&
+        !STATE.isReducedMotion
+    ) {
         gsap.to(progressLine, {
             height: "100%",
             ease: "none",
@@ -590,13 +665,20 @@ function initTimelineProgress() {
    13. TECH STACK BENTO ANIMATION & PINNED PROJECTS
    ========================================================================== */
 function initScrollAnimations() {
-    if (typeof ScrollTrigger === "undefined" || typeof gsap === "undefined" || STATE.isReducedMotion) {
+    if (
+        typeof ScrollTrigger === "undefined" ||
+        typeof gsap === "undefined" ||
+        STATE.isReducedMotion
+    ) {
         if (typeof gsap !== "undefined") {
-            gsap.set(".section-header, .bento-block, .project-card-noir, .about-card, .timeline-item", {
-                opacity: 1,
-                y: 0,
-                clearProps: "all"
-            });
+            gsap.set(
+                ".section-header, .bento-block, .project-card-noir, .about-card, .timeline-item",
+                {
+                    opacity: 1,
+                    y: 0,
+                    clearProps: "all",
+                },
+            );
         }
         return;
     }
@@ -605,7 +687,8 @@ function initScrollAnimations() {
 
     // Section headers
     gsap.utils.toArray(".section-header").forEach((header) => {
-        gsap.fromTo(header, 
+        gsap.fromTo(
+            header,
             { opacity: 0, y: 30 },
             {
                 opacity: 1,
@@ -618,13 +701,14 @@ function initScrollAnimations() {
                     start: "top 92%",
                     once: true,
                 },
-            }
+            },
         );
     });
 
     // Tech Stack Bento blocks stagger in sequence
     gsap.utils.toArray(".bento-block").forEach((block, index) => {
-        gsap.fromTo(block,
+        gsap.fromTo(
+            block,
             { opacity: 0, y: 35 },
             {
                 opacity: 1,
@@ -638,13 +722,14 @@ function initScrollAnimations() {
                     start: "top 92%",
                     once: true,
                 },
-            }
+            },
         );
     });
 
     // Project Cards reveal
     gsap.utils.toArray(".project-card-noir").forEach((card) => {
-        gsap.fromTo(card,
+        gsap.fromTo(
+            card,
             { opacity: 0, y: 40 },
             {
                 opacity: 1,
@@ -657,13 +742,14 @@ function initScrollAnimations() {
                     start: "top 88%",
                     once: true,
                 },
-            }
+            },
         );
     });
 
     // About cards reveal
     gsap.utils.toArray(".about-card").forEach((card, index) => {
-        gsap.fromTo(card,
+        gsap.fromTo(
+            card,
             { opacity: 0, y: 30 },
             {
                 opacity: 1,
@@ -677,7 +763,7 @@ function initScrollAnimations() {
                     start: "top 92%",
                     once: true,
                 },
-            }
+            },
         );
     });
 
@@ -756,7 +842,8 @@ function initContactForm() {
         name: {
             el: document.getElementById("contact-name"),
             error: document.getElementById("nameError"),
-            validate: (val) => val.trim().length >= 2 || "Name must be at least 2 characters.",
+            validate: (val) =>
+                val.trim().length >= 2 || "Name must be at least 2 characters.",
         },
         email: {
             el: document.getElementById("contact-email"),
@@ -769,12 +856,14 @@ function initContactForm() {
         subject: {
             el: document.getElementById("contact-subject"),
             error: document.getElementById("subjectError"),
-            validate: (val) => val.trim().length >= 3 || "Subject must be at least 3 characters.",
+            validate: (val) =>
+                val.trim().length >= 3 || "Subject must be at least 3 characters.",
         },
         message: {
             el: document.getElementById("contact-message"),
             error: document.getElementById("messageError"),
-            validate: (val) => val.trim().length >= 10 || "Message must be at least 10 characters.",
+            validate: (val) =>
+                val.trim().length >= 10 || "Message must be at least 10 characters.",
         },
     };
 
@@ -828,7 +917,8 @@ function initContactForm() {
         // Check EmailJS Credentials
         if (!emailJsConfigured || !window.emailjs) {
             statusEl.className = "form-status-alert error visible";
-            statusEl.textContent = "EmailJS is not configured yet. Add your Public Key, Service ID, and Template ID in script.js.";
+            statusEl.textContent =
+                "EmailJS is not configured yet. Add your Public Key, Service ID, and Template ID in script.js.";
             return;
         }
 
@@ -855,15 +945,17 @@ function initContactForm() {
             await window.emailjs.send(
                 EMAILJS_CONFIG.SERVICE_ID,
                 EMAILJS_CONFIG.TEMPLATE_ID,
-                templateParams
+                templateParams,
             );
 
             form.reset();
             statusEl.className = "form-status-alert success visible";
-            statusEl.textContent = "Message transmitted successfully! I will respond promptly.";
+            statusEl.textContent =
+                "Message transmitted successfully! I will respond promptly.";
         } catch (error) {
             statusEl.className = "form-status-alert error visible";
-            statusEl.textContent = "Transmission failed. Please reach out directly to harshgaikwad0517@gmail.com.";
+            statusEl.textContent =
+                "Transmission failed. Please reach out directly to harshgaikwad0517@gmail.com.";
         } finally {
             submitBtn.classList.remove("loading");
             submitBtn.disabled = false;
@@ -929,12 +1021,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (targetEl) {
             targetEl.scrollIntoView({ behavior: "instant", block: "start" });
             if (typeof gsap !== "undefined") {
-                gsap.set(targetEl.querySelectorAll(".bento-block, .project-card-noir, .section-header, .spotlight-card, .timeline-item"), {
-                    opacity: 1,
-                    y: 0,
-                    x: 0,
-                    clearProps: "transform,opacity"
-                });
+                gsap.set(
+                    targetEl.querySelectorAll(
+                        ".bento-block, .project-card-noir, .section-header, .spotlight-card, .timeline-item",
+                    ),
+                    {
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        clearProps: "transform,opacity",
+                    },
+                );
             }
             if (typeof ScrollTrigger !== "undefined") {
                 ScrollTrigger.refresh();
