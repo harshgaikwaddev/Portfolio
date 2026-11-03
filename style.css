@@ -531,8 +531,10 @@ ol {
   transition: transform 0.4s var(--ease-out);
 }
 
-.navbar-wrapper.nav-hidden {
-  transform: translateY(-100%);
+@media (max-width: 1024px) {
+  .navbar-wrapper.nav-hidden {
+    transform: translateY(-100%);
+  }
 }
 
 .scroll-progress-bar {
@@ -550,11 +552,12 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--surface-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
   border-bottom: 1px solid var(--border);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
@@ -562,9 +565,9 @@ ol {
 }
 
 .navbar-scrolled {
-  background: rgba(7, 9, 13, 0.92);
+  background: rgba(255, 255, 255, 0.08);
   border-bottom-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
@@ -1034,8 +1037,8 @@ ol {
 
 /* Section Header Typography */
 .section {
-  padding-top: clamp(60px, 10vw, 120px);
-  padding-bottom: clamp(60px, 10vw, 120px);
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: clamp(48px, 7vw, 88px);
   position: relative;
 }
 

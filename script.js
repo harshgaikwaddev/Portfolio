@@ -290,7 +290,7 @@ function initSmoothScroll() {
 }
 
 /* ==========================================================================
-   5. NAVBAR SCROLL PROGRESS & HIDE/SHOW ON SCROLL
+   5. NAVBAR SCROLL PROGRESS & ACTIVE SECTION
    ========================================================================== */
 function initNavbar() {
     const navbarWrapper = document.getElementById("navbarWrapper");
@@ -298,6 +298,7 @@ function initNavbar() {
     const progressBar = document.getElementById("scrollProgressBar");
     const navLinks = document.querySelectorAll(".nav-links .nav-link");
     const sections = document.querySelectorAll("main > section, footer");
+    const mobileTabletQuery = window.matchMedia("(max-width: 1024px)");
     const threshold = 15;
 
     function handleScroll() {
@@ -320,11 +321,18 @@ function initNavbar() {
             }
         }
 
-        // Hide on scroll down, show on scroll up
         if (navbarWrapper) {
-            if (scrollY > 120 && scrollY > STATE.lastScrollY + threshold) {
+            if (
+                mobileTabletQuery.matches &&
+                scrollY > 120 &&
+                scrollY > STATE.lastScrollY + threshold
+            ) {
                 navbarWrapper.classList.add("nav-hidden");
-            } else if (scrollY < STATE.lastScrollY - threshold || scrollY <= 120) {
+            } else if (
+                !mobileTabletQuery.matches ||
+                scrollY < STATE.lastScrollY - threshold ||
+                scrollY <= 120
+            ) {
                 navbarWrapper.classList.remove("nav-hidden");
             }
         }
